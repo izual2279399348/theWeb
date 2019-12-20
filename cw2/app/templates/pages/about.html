@@ -1,0 +1,45 @@
+{% extends 'layouts/main.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Management</h1>
+</div>
+<p class="lead">Welcome, User {{user.name}}</p>
+<div><p>   </p></div>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Bookname</th>
+        <th>Author</th>
+        <th>Reader</th>
+		<th>Evaluation</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+    {% for book in books %}
+    <tr>
+      <td>{{book.bookname}}</td>
+      <td>{{book.author}}</td>
+	  <td>{{book.username}}</td>
+      <td>{{book.evaluation}}</td>
+	  <td><a href="/delete_book/{{book.bookname}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if user.name == 'duyujia123456789' %}
+<a href="/edit_user/{{user.name}}"><button type="button" class="btn btn-primary">Edit Yourself</button></a>
+<a href="/Users"><button type="button" class="btn btn-primary">Edit Users</button></a>
+<a href="/edit_book"><button type="button" class="btn btn-primary">Edit Books</button></a>
+{% endif %}
+{% if user.name != 'duyujia123456789' %}
+<a href="/edit_user/{{user.name}}"><button type="button" class="btn btn-primary">Edit Yourself</button></a>
+{% endif %}
+<a href="/add_book"><button type="button" class="btn btn-primary">Add Books</button></a>
+<div><p>   </p></div>
+
+{% endblock %}

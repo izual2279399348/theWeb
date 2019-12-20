@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+{% block title %}User Management{% endblock %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+    {% for user in users %}
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td><a href="/edit_user/{{user.name}}"><button type="button" class="btn btn-primary">Edit</button></a></td>
+      <td><a href="/delete_user/{{user.name}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

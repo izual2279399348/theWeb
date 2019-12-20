@@ -1,0 +1,12 @@
+{% extends 'layouts/form.html' %}
+{% block title %}Add Books{% endblock %}
+{% block content %}
+  <form method="post" class="form">
+    <a href="/about" title="Back to aboutpage">Cancel</a>
+    {{ form.book(class_ = 'form-control first-input', placeholder = form.book.label.text, required = true, autofocus = true) }}<br>
+    {{ form.author(class_ = 'form-control', placeholder = form.author.label.text, required = true) }}<br>
+    {{ form.evaluation(class_ = 'form-control',rows="10", placeholder = form.evaluation.label.text, required = true) }}<br>
+    <input type="submit" value="Add" class="btn btn-primary btn-lg btn-block">
+    <br>
+  </form>
+{% endblock %}

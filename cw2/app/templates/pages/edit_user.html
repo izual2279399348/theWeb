@@ -1,0 +1,17 @@
+<!-- extend base layout -->
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  <h1>Edit User</h1>
+  <form method="post" name="create">
+      {{ form.hidden_tag() }}
+      <p>
+          User:<br>
+        {{ form.name(class_ = 'form-control first-input', placeholder = form.name.label.text, required = true, autofocus = true) }}<br>
+		{{ form.email(class_ = 'form-control', placeholder = form.email.label.text, required = true) }}<br>
+		{{ form.password(class_ = 'form-control', placeholder = form.password.label.text, required = true) }}<br>
+		{{ form.confirm(class_ = 'form-control last-input', placeholder = form.confirm.label.text, required = true) }}<br>
+      </p>
+      <p><input type="submit" class="btn btn-default" value="Save"></p>
+  </form>
+{% endblock %}

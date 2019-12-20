@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+{% block title %}Recommanded Book Management{% endblock %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Evaluation</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+    {% for book in books %}
+    <tr>
+      <td>{{book.bookname}}</td>
+      <td>{{book.author}}</td>
+	  <td>{{book.evaluation}}</td>
+	  {% if user.name == 'duyujia123456789' %}
+      <td><a href="/delete_recommanded_book/{{book.bookname}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+	  {% endif %}
+	</tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/add_recommanded_book"><button type="button" class="btn btn-primary">Add Recommanded Book</button></a>
+{% endblock %}

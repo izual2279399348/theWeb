@@ -1,0 +1,32 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Home
+    {% if flag == False %}
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><font size = "4" color = "black">User</font><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/register">Signup</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/forgot">Reset Password</a></li>
+        </ul>
+    </ul>
+    {% endif %}
+    {% if flag == True %}
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><font size = "4" color = "black">User</font><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+    </ul>
+    {% endif %}
+  </h1>
+</div>
+<h3 class="lead">Welcome to be our member</h3>
+<p><font size="4">Come and join us, so that we could learn together</font></p>
+
+{% endblock %}

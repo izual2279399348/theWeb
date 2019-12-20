@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+{% block title %}User Management{% endblock %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Bookname</th>
+        <th>Author</th>
+        <th>Reader</th>
+		<th>Evaluation</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+    {% for book in books %}
+    <tr>
+      <td>{{book.bookname}}</td>
+      <td>{{book.author}}</td>
+	  <td>{{book.username}}</td>
+      <td>{{book.evaluation}}</td>
+	  <td><a href="/delete_book/{{book.bookname}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
